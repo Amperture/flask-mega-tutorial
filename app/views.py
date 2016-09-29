@@ -47,6 +47,10 @@ def login():
             providers=app.config['OPENID_PROVIDERS']
     )
 
+@lm.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
 @oid.after_login
 def after_login(resp):
     if resp.email is None or resp.email == "":
