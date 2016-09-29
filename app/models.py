@@ -14,7 +14,7 @@ class User(db.Model):
     def is_active(self):
         return True
 
-    @propery
+    @property
     def is_anonymous(self):
         return False
 
